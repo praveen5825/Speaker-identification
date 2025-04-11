@@ -1,0 +1,35 @@
+from django.urls import path
+from .views import *
+
+urlpatterns = [
+    path('registration', RegisterUserView.as_view()),
+    path('sign-in', SignInView.as_view()),
+    path('log-in', LogInView.as_view()),
+    path('otp_verify', OTPVerificationView.as_view()),
+    path('profile', UserProfileView.as_view()),
+    path('profile/update', UserProfileView.as_view()),
+    path('text/create', TextMessageView.as_view()),
+    path('text/list', TextMessageView.as_view()),
+    path('push-notification', PushNotificationView.as_view()),
+    path('notifications', GetNotificationsView.as_view()),
+    path('mark-as-read', PushNotificationView.as_view()),
+    path('forgotpassword', ForgotPasswordView.as_view()),
+    path('push-notification-fcm', FCMNotificationView.as_view()),
+    path('deactivate-account', DeactivateAccount.as_view()),
+    path('ai-assistant', AIAssistantView.as_view(), name='ai_assistant'),
+    path('sync-contacts', SyncContactsView.as_view(), name='sync-contacts'),
+    path('upload-documents', UploadDocumentsView.as_view(), name='upload-document'),
+    path('add-speaker', AddSpeakerAPIView.as_view(), name='add-speaker'),
+    path('identify-speaker', SpeakerIdentificationAPIView.as_view(), name='identify-speaker'),
+    path('create-connection', CreateUserConnectionAPIView.as_view(), name='create-connection'),
+    path('transcriptions', get_transcriptions, name='get_transcriptions'),  
+    path('recording/<str:action>', RecordingView.as_view(), name='recording'),
+    path('save-speaker-name', SaveSpeakerNameView.as_view(), name='save_speaker_name'),
+    path('ask-ai', AskAIView.as_view(), name='ask_ai'),
+    path('ask-ai-temp', AskAIViewTemp.as_view(), name='ask_ai'),
+    path('clear-data', ClearDataView.as_view(), name='clear_data'),
+    path('history/<str:type>', HistoryView.as_view(), name='history'),  
+    path('transcript/upload', TranscriptUploadView.as_view(), name='transcript-upload'), 
+    path('deepgram-test', index_view, name='index'),  
+]
+
